@@ -380,7 +380,7 @@ def _import_project_issues(gitea_api: pygitea, issues: [gitlab.v4.objects.Projec
                     })
                     if import_response.ok:
                         import_response = gitea_api.get("/repos/" + owner + "/" + repo + "/issues/" + import_response.json()["id"] + "/comments", json={
-                            "body": note..body,
+                            "body": note.body,
                         })
             else:
                 print_error("Issue " + issue.title + " import failed: " + import_response.text)
